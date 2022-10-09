@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ asset('main/js/bootstrap-5.2.1-dist/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('main/js/bootstrap-5.2.1-dist/js/bootstrap.js') }}">
     <link rel="stylesheet" href="{{ asset('main/css/all.min.css') }}">
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
 <body>
