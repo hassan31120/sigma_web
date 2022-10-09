@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\LinksController;
+use App\Http\Controllers\Admin\QuestionsController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\MainController;
@@ -47,13 +48,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::post('/admin/update/{id}', [UsersController::class, 'Adminupdate'])->name('admin.admin.update');
     Route::get('/admin/destroy/{id}', [UsersController::class, 'Admindestroy'])->name('admin.admin.destroy');
 
-     // Links
-     Route::get('/links', [LinksController::class, 'index'])->name('admin.links');
-     Route::get('/link/create', [LinksController::class, 'create'])->name('admin.link.create');
-     Route::post('/link/store', [LinksController::class, 'store'])->name('admin.link.store');
-     Route::get('/link/edit/{id}', [LinksController::class, 'edit'])->name('admin.link.edit');
-     Route::post('/link/update/{id}', [LinksController::class, 'update'])->name('admin.link.update');
-     Route::get('/link/destroy/{id}', [LinksController::class, 'destroy'])->name('admin.link.destroy');
+    // Links
+    Route::get('/links', [LinksController::class, 'index'])->name('admin.links');
+    Route::get('/link/create', [LinksController::class, 'create'])->name('admin.link.create');
+    Route::post('/link/store', [LinksController::class, 'store'])->name('admin.link.store');
+    Route::get('/link/edit/{id}', [LinksController::class, 'edit'])->name('admin.link.edit');
+    Route::post('/link/update/{id}', [LinksController::class, 'update'])->name('admin.link.update');
+    Route::get('/link/destroy/{id}', [LinksController::class, 'destroy'])->name('admin.link.destroy');
+
+    // Questions
+    Route::get('/questions', [QuestionsController::class, 'index'])->name('admin.questions');
+    Route::get('/question/create', [QuestionsController::class, 'create'])->name('admin.question.create');
+    Route::post('/question/store', [QuestionsController::class, 'store'])->name('admin.question.store');
+    Route::get('/question/edit/{id}', [QuestionsController::class, 'edit'])->name('admin.question.edit');
+    Route::post('/question/update/{id}', [QuestionsController::class, 'update'])->name('admin.question.update');
+    Route::get('/question/destroy/{id}', [QuestionsController::class, 'destroy'])->name('admin.question.destroy');
 
      // Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');

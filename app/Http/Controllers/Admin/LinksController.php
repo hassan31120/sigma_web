@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Link;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 
 class LinksController extends Controller
 {
@@ -40,14 +41,23 @@ class LinksController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'link' => 'required'
+            'link' => 'required',
+            'image' => 'required|image'
         ]);
 
         $data = $request->all();
 
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $filepath = 'storage/images/websites/' . date('Y') . '/' . date('m') . '/';
+            $filename = $filepath . time() . '-' . $file->getClientOriginalName();
+            $file->move($filepath, $filename);
+            $data['image'] = $filename;
+        }
+
         Link::create($data);
 
-        return redirect(route('admin.links'))->with('success', 'تم إضافة الفيديو بنجاح');
+        return redirect(route('admin.links'))->with('success', 'تم إضافة الموقع بنجاح');
     }
 
     /**
@@ -87,8 +97,21 @@ class LinksController extends Controller
             'link' => 'required'
         ]);
         $data = $request->all();
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $filepath = 'storage/images/websites/' . date('Y') . '/' . date('m') . '/';
+            $filename = $filepath . time() . '-' . $file->getClientOriginalName();
+            $file->move($filepath, $filename);
+            if (request('old-image')) {
+                $oldpath = request('old-image');
+                if (File::exists($oldpath)) {
+                    unlink($oldpath);
+                }
+            }
+            $data['image'] = $filename;
+        }
         $link->update($data);
-        return back()->with('success', 'تم تعديل الفيديو بنجاح');
+        return back()->with('success', 'تم تعديل الموقع بنجاح');
     }
 
     /**
@@ -101,6 +124,6 @@ class LinksController extends Controller
     {
         $link = Link::find($id);
         $link->delete();
-        return redirect(route('admin.links'))->with('success', 'تم جذف الفيديو بنجاح');
+        return redirect(route('admin.links'))->with('success', 'تم حذف الموقع بنجاح');
     }
 }

@@ -43,10 +43,10 @@
                                                         <div class="row">
                                                             <div class="col-md-12 mb-4">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="value"
+                                                                    <label class="form-label" for="price"
                                                                         style="font-size: 18px">القيمة</label>
-                                                                    <input type="text" name="value" id="value"
-                                                                        class="form-control form-control-lg formborderCSS" value="{{ $setting->value }}" required />
+                                                                    <input type="number" name="price" id="price"
+                                                                        class="form-control form-control-lg formborderCSS" value="{{ $setting->price }}" required />
                                                                 </div>
                                                             </div>
                                                         </div>

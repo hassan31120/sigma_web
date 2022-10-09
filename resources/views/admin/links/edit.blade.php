@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('dash')
-الفيديوهات
+المواقع
 @endsection
 @section('content')
     <div class="row">
@@ -26,8 +26,24 @@
                                             <div class="card shadow-2-strong card-registration"
                                                 style="border-radius: 15px;">
                                                 <div class="card-body p-4 p-md-5">
-                                                    <form action="{{ route('admin.link.update', $link->id) }}" method="POST">
+                                                    <form action="{{ route('admin.link.update', $link->id) }}" method="POST" enctype="multipart/form-data">
                                                         @csrf
+
+                                                        <div class="row">
+                                                            <label class="form-label" for="image"
+                                                                style="font-size: 18px">الصورة</label>
+                                                            <div class="col-md-6 mb-4">
+                                                                <div class="form-outline">
+                                                                    <input type="file" name="image" id="image"
+                                                                        class="form-control form-control-lg formborderCSS" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <div class="form-outline">
+                                                                    <img src="{{ asset($link->image) }}" alt="web_photo" style="max-height: 200px; max-width: 200px">
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="row">
                                                             <div class="col-md-12 mb-4">

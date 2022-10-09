@@ -47,7 +47,16 @@
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-user-cog"></i>
                         </div>
-                        <span class="nav-link-text me-1">الفيديوهات</span>
+                        <span class="nav-link-text me-1">المواقع</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/questions' ? 'active' : '' }}"
+                        href="{{ route('admin.questions') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الأسئلة</span>
                     </a>
                 </li>
             </ul>

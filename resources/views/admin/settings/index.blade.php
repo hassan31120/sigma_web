@@ -41,7 +41,7 @@
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0" style="margin-right: 20px">
-                                                    {{ $setting->value }}
+                                                    {{ $setting->price }}
                                                 </p>
                                             </td>
 
