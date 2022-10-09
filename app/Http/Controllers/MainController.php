@@ -18,6 +18,6 @@ class MainController extends Controller
     public function videos(){
         $setting = Setting::find(1);
         $links = Link::latest()->paginate(6);
-        return view('main.videos', compact('setting', 'links'));
+        return view('main.works', compact('setting', 'links'));
     }
 }
