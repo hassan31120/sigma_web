@@ -11,8 +11,39 @@
     <link rel="stylesheet" href="{{ asset('main/js/bootstrap-5.2.1-dist/js/bootstrap.js') }}">
     <link rel="stylesheet" href="{{ asset('main/css/all.min.css') }}">
     <style>
-        body{
+        body {
             overflow-x: hidden;
+        }
+    </style>
+    <style>
+        .acordion-item-header {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .acordion-item-header::after {
+            content: "\002b";
+            font-size: 2re;
+            position: absolute;
+            left: 1rem;
+        }
+
+        .acordion-item-header.active::after {
+            content: "\2212";
+        }
+
+        .accordion-item-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out;
+        }
+
+        .acordion-item-body-content {
+
+            padding: 1rem;
+            line-height: 1.5rem;
+            border-top: 1px solid;
+            border-image: linear-gradient(to right, transparent, rgb(12, 77, 62), transparent)1;
         }
     </style>
 </head>
@@ -30,18 +61,21 @@
                     <ul class="navbar-nav containerCSS">
                         <li class="nav-item">
                             <a class="nav-link fs-5" style="color: #1d1487
-                            ;" aria-current="page" href="{{ route('main') }}">الرئيسية</a>
+                            ;"
+                                aria-current="page" href="{{ route('main') }}">الرئيسية</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link text-dark" href="#motion">اهمية الموشن</a>
                         </li> -->
                         <li class="nav-item">
                             <a class="nav-link fs-5"style="color: #1d1487
-                            ;" href="#services">اعمالنا</a>
+                            ;"
+                                href="#services">اعمالنا</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-5"style="color: #1d1487
-                            ;" href="#contactUs"> تواصل </a>
+                            ;"
+                                href="#contactUs"> تواصل </a>
                         </li>
                     </ul>
                 </div>
@@ -52,7 +86,8 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="view text-center">
-                <img src="{{ asset('main/img/d451c9d3-80cc-464e-a2ed-a54f55fc1f75.jpg') }}" class="img-fluid" alt="sample image">
+                <img src="{{ asset('main/img/d451c9d3-80cc-464e-a2ed-a54f55fc1f75.jpg') }}" class="img-fluid"
+                    alt="sample image">
             </div>
         </div>
     </div>
