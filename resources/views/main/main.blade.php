@@ -29,16 +29,16 @@
     </div>
     <div class="container-fluid mt-3 " style="cursor: pointer;">
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-12 d-flex justify-content-center text-dark">
-                <div class="acordion">
+        <div class="row">
+            <div>
+                <div class="accordion">
                     @foreach ($questions as $question)
-                        <div class="acordion-item">
-                            <p class="acordion-item-header fw-bold fs-5">
+                        <div class="accordion-item">
+                            <p class="accordion-item-header">
                                {{ $question->question }}
                             </p>
                             <div class="accordion-item-body">
-                                <div class="acordion-item-body-content fw-bold">
+                                <div class="accordion-item-body-content">
                                     {{ $question->answer }}
                                 </div>
                             </div>

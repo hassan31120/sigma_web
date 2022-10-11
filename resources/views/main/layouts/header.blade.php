@@ -16,34 +16,61 @@
         }
     </style>
     <style>
-        .acordion-item-header {
-            cursor: pointer;
-            position: relative;
+        .accordion {
+            width: 90%;
+            max-width: 1000px;
+            margin: 2rem auto;
         }
 
-        .acordion-item-header::after {
-            content: "\002b";
-            font-size: 2re;
+        .accordion-item {
+            background-color: #fff;
+            color: #111;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .accordion-item-header {
+            padding: 1.75rem 3rem 0.5rem 3rem;
+            min-height: 3.5rem;
+            line-height: 1.25rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .accordion-item-header::after {
+            content: "\002B";
+            font-size: 2rem;
+            margin-bottom: 7px;
             position: absolute;
             left: 1rem;
         }
 
-        .acordion-item-header.active::after {
+        .accordion-item-header.active::after {
             content: "\2212";
         }
 
         .accordion-item-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.2s ease-in-out;
+            transition: max-height 0.2s ease-out;
         }
 
-        .acordion-item-body-content {
-
+        .accordion-item-body-content {
             padding: 1rem;
             line-height: 1.5rem;
             border-top: 1px solid;
-            border-image: linear-gradient(to right, transparent, rgb(12, 77, 62), transparent)1;
+            border-image: linear-gradient(to left, transparent, #34495e, transparent) 1;
+        }
+
+        @media(max-width:767px) {
+            html {
+                font-size: 14px;
+            }
         }
     </style>
 </head>

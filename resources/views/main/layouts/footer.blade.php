@@ -47,18 +47,21 @@
 <script src="{{ asset('main/js/jquery/jquery.js') }}"></script>
 <script src="{{ asset('main/js/index.js') }}"></script>
 <script>
-    const acordionItemHeader = document.querySelectorAll(".acordion-item-header");
-    acordionItemHeader.forEach(acordionItemHeader => {
-        acordionItemHeader.addEventListener("click", event => {
-            acordionItemHeader.classList.toggle("active");
-            const acordionItemBody = acordionItemHeader.nextElementSibling;
-            if (acordionItemHeader.classList.contains("active")) {
-                acordionItemBody.style.maxHeight = acordionItemBody.scrollHeight + "px";
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if (accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
             } else {
-                acordionItemBody.style.maxHeight = 0;
+                accordionItemBody.style.maxHeight = 0;
             }
+
         });
-    })
+    });
 </script>
 </body>
 
