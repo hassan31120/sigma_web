@@ -46,7 +46,6 @@
 <script src="{{ asset('main/js/jquery/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ asset('main/js/jquery/jquery.js') }}"></script>
 <script src="{{ asset('main/js/index.js') }}"></script>
-<script src="./js/bootstrap-5.2.1-dist/js/bootstrap.bundle.js"></script>
 <script src="{{ asset('main/js/bootstrap-5.2.1-dist/js/bootstrap.bundle.js') }}"></script>
 <script>
     const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
